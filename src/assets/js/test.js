@@ -39,15 +39,5 @@ var data = {
 function execute(total, invoiceN) {
   data.amount = total;
   data.invoice = invoiceN;
-  console.log(data);
-  // data.invoice = invoice;
-  // handler.open(data);
-}
-
-var total = 0;
-
-function test () {
-  console.log('hi')
-    // total = total + 1;
-    // console.log(total);
+  handler.open(data);
 }
