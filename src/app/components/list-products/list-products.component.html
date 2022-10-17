@@ -1,0 +1,13 @@
+<div class="catalogue" name="catalogue" id="catalogue">
+  <div class="card" *ngFor="let item of products">
+    <img [src]="['assets/images/' + item.frontPage + '.jpg']" class="card-img-top" [alt]="item.name">
+    <div class="card-body">
+      <p class="card-text">{{ item.shortDescription }}</p>
+      <h6 class="card-title">{{ item.name | uppercase }}</h6>
+      <p>{{ item.price | currency }}</p>
+    </div>
+    <a class="card-footer" [routerLink]="['product/'+item.id]">
+      <small class="text">SELECCIONAR TALLA</small>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+
+  img {
+    display: block;
+    width: 120px;
+    height: 68px;
+  }
+}
+
+
+
+.banner {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  background-image: url('/assets/images/Banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .buy {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    a {
+      width: 130px;
+      height: 35px;
+      padding-top: 1px;
+      align-self: center;
+      background: #C3EC95;
+      color: black;
+      font-family: "Lato", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 25px;
+      border-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.catalogue {
+  width: 95%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 12px;
+  margin: 35px auto;
+}
+
+.card {
+  border: none !important;
+}
+
+.card-img-top {
+  border-radius: 0px !important;
+}
+
+.card-body {
+  text-align: center;
+  font-size: 14px !important;
+}
+
+.card-footer {
+  padding: 6px 16px !important;
+  font-size: 14px !important;
+  border-radius: 0px !important;
+  background-color: #D8A4A8 !important;
+  cursor: pointer;
+}
+
+.text {
+  color: black;
+}
+
+.short-black {
+  white-space: pre;
+}

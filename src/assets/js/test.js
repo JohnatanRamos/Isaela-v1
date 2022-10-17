@@ -4,8 +4,8 @@ var handler = ePayco.checkout.configure({
 });
 var data = {
   //Parametros compra (obligatorio)
-  name: "Vestido Mujer Primavera",
-  description: "Vestido Mujer Primavera",
+  name: "Pijama",
+  description: "Pijama",
   invoice: "12734",
   currency: "cop",
   amount: "12000",
@@ -36,10 +36,12 @@ var data = {
   methodsDisable: [],
 };
 
-function execute(invoice) {
-  data.amount = "20000";
-  data.invoice = invoice;
-  handler.open(data);
+function execute(total, invoiceN) {
+  data.amount = total;
+  data.invoice = invoiceN;
+  console.log(data);
+  // data.invoice = invoice;
+  // handler.open(data);
 }
 
 var total = 0;

@@ -1,0 +1,61 @@
+footer {
+  padding: 30px 15px 15px 14px;
+  background-color: #D8A4A8;
+}
+
+footer h6 {
+  padding-left: 25px;
+  font-weight: 600;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px 25px 0px;
+}
+
+.contact-info {
+  display: flex;
+  padding: 0px 25px;
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  gap: 7px;
+}
+
+.whatsapp {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('/assets/images/whatssap.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gmail {
+  margin-top: 4px;
+  display: block;
+  width: 18px;
+  height: 14px;
+  background-image: url('/assets/images/IC-26.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.instagram {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url('/assets/images/instagram.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+hr {
+  margin: 0.4rem 0 !important;
+}
+
+.author {
+  text-align: center;
+  font-size: 12px;
+}

@@ -1,0 +1,52 @@
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img [src]="'assets/images/' + product.frontPage + '.jpg'" class="d-block w-100" alt="pijama">
+    </div>
+    <div class="carousel-item" *ngFor="let item of product.images">
+      <img [src]="'assets/images/' + item + '.jpg'" class="d-block w-100" alt="pijama">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+<div class="description">
+  <h5>{{product.name}}</h5>
+  <h5>{{product.price | currency}}</h5>
+  <p>{{product.description}}</p>
+
+
+  <div class="amount-size">
+    <div class="amount">
+      <p>Cantidad:</p>
+      <input type="number" min="1" [(ngModel)]="amount" class="form-control" value="1">
+    </div>
+
+    <div class="size">
+      <p>Talla:</p>
+      <div class="content-size">
+        <input type="text"  readonly value="XS" [ngClass]="{'form-control': true, 'value-select': size === 'XS'}" (click)="setSize($event)">
+        <input type="text"  readonly value="S" [ngClass]="{'form-control': true, 'value-select': size === 'S'}" (click)="setSize($event)">
+        <input type="text"  readonly value="M" [ngClass]="{'form-control': true, 'value-select': size === 'M'}" (click)="setSize($event)">
+        <input type="text"  readonly value="L" [ngClass]="{'form-control': true, 'value-select': size === 'L'}" (click)="setSize($event)">
+        <input type="text"  readonly value="XL" [ngClass]="{'form-control': true, 'value-select': size === 'XL'}" (click)="setSize($event)">
+      </div>
+    </div>
+  </div>
+
+  <button class="add-item" *ngIf="size && amount > 0" (click)="addProduct()">
+    Añadir al carrito
+    <span class="icon-cart icon-cart-button"></span>
+  </button>
+
+  <button class="add-item" [routerLink]="'/'">
+    Volver
+  </button>
+</div>

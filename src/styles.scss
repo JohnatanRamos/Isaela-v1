@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  $color-pink: #D8A4A8;
+  $color-green: #C3EC95;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+a {
+  text-decoration-line: unset !important;
+}
