@@ -79,3 +79,26 @@ h5 {
 .value-select {
   background-color: #D8A4A8;
 }
+
+.back-button {
+  background: white;
+  border: 1px solid;
+}
+
+
+@media only screen and (min-width: 644px) {
+  .detail-product {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+  }
+
+  #carouselExampleControls {
+    width: 34%;
+  }
+
+  .description {
+    width: 34%;
+  }
+}
+

@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailProductComponent } from './components/detail-product/detail-product.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { SectionMainComponent } from './components/section-main/section-main.component';
+import { LayoutRoutingModule } from './layout/layout-routing.module';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'product/:id',
-    component: DetailProductComponent
-  },
-  {
     path: '',
-    component: SectionMainComponent
+    component: LayoutComponent
   },
   {
     path: '**',
@@ -20,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), LayoutRoutingModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

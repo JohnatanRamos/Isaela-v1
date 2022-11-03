@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/shared/interface/IProduct.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -16,6 +16,7 @@ export class DetailProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -28,7 +29,9 @@ export class DetailProductComponent implements OnInit {
     const result = this.cartService.products.find((item) => { return item.id === id });
     if (result) {
       this.product = result;
+      return;
     }
+    this.router.navigateByUrl('/not-found')
     // Me envie a la pagina de not found.
   }
 

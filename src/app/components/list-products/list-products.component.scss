@@ -23,9 +23,10 @@
 .card-footer {
   padding: 6px 16px !important;
   font-size: 14px !important;
-  border-radius: 0px !important;
   background-color: #D8A4A8 !important;
   cursor: pointer;
+  border-radius: 25px;
+  text-align: center;
 }
 
 .text {
@@ -34,4 +35,17 @@
 
 .short-black {
   white-space: pre;
+}
+
+
+@media only screen and (min-width: 644px) {
+  .catalogue {
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+
+  .card {
+    width: 83%;
+  }
 }

@@ -10,6 +10,7 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     SectionMainComponent,
     ListProductsComponent,
     DetailProductComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
