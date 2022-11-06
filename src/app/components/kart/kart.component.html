@@ -1,0 +1,41 @@
+<div class="kart">
+
+  <div>
+    <h4>Tus productos</h4>
+    <div class="list-items">
+      <div *ngFor="let item of totalProducts" class="item">
+
+        <img [src]="['assets/images/' + item.frontPage + '.jpg']" [alt]="item.name" class="image-product">
+
+        <div class="image-resume">
+          <p class="title">{{item.name}}</p>
+          <p>{{item.shortDescription}}</p>
+          <p>{{item.price | currency}}</p>
+        </div>
+
+        <div>
+          <span></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="resume">
+    <h5>Resumen del pedido</h5>
+
+    <p>{{totalProducts.length}} artículos</p>
+    <hr>
+
+    <div class="remuse-total">
+      <h5>TOTAL</h5>
+      <h5>15.900</h5>
+    </div>
+
+    <div>
+      <button class="button-buy">
+        <small class="text">Listo para pagar</small>
+      </button>
+    </div>
+  </div>
+</div>

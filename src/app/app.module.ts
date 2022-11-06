@@ -11,6 +11,7 @@ import { DetailProductComponent } from './components/detail-product/detail-produ
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
+import { KartComponent } from './components/kart/kart.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LayoutComponent } from './layout/layout.component';
     ListProductsComponent,
     DetailProductComponent,
     NotFoundComponent,
-    LayoutComponent
+    LayoutComponent,
+    KartComponent
   ],
   imports: [
     BrowserModule,
