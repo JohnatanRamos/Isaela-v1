@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { IProduct } from 'src/app/shared/interface/IProduct.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
-import cryptoRandomString from 'crypto-random-string';
-
-declare var execute: any;
 
 @Component({
   selector: 'app-nav',
@@ -14,7 +13,10 @@ export class NavComponent implements OnInit {
 
   totalProducts!: IProduct[];
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private route: Router
+  ) { }
 
   ngOnInit(): void {
     this.cartService.totalProducts$.subscribe((res) => {
@@ -22,14 +24,9 @@ export class NavComponent implements OnInit {
     });
   }
 
-  buyProducts() {
-    if (this.totalProducts?.length > 0) {
-      let totalValue = 0;
-      const invoiceN = cryptoRandomString({ length: 15 });
-      this.totalProducts.forEach((product) => {
-        totalValue = product.price + totalValue;
-      });
-      execute(totalValue, invoiceN);
+  changeRoute() {
+    if (this.totalProducts.length > 0) {
+      this.route.navigate(['/myKart']);
     }
   }
 

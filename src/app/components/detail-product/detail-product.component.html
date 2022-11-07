@@ -53,6 +53,11 @@
       <span class="icon-cart icon-cart-button"></span>
     </button>
 
+    <button class="add-item color-green" *ngIf="size && amount > 0" [routerLink]="'/myKart'">
+      Ir al carrito
+      <span class="icon-cart-button"></span>
+    </button>
+
     <button [ngClass]="{'back-button': size && amount > 0, 'add-item': true}" [routerLink]="'/'">
       Volver
     </button>

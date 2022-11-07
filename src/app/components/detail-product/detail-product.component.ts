@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/shared/interface/IProduct.interface';
 import { CartService } from 'src/app/shared/services/cart.service';
+import cryptoRandomString from 'crypto-random-string';
 
 @Component({
   selector: 'app-detail-product',
@@ -17,7 +18,7 @@ export class DetailProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private cartService: CartService) { }
+    public cartService: CartService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((res) => {
@@ -43,6 +44,7 @@ export class DetailProductComponent implements OnInit {
     const total = [];
     for (let index = 0; index < this.amount; index++) {
       this.product.size = this.size;
+      this.product.idProduct = cryptoRandomString({ length: 15 });
       total.push({...this.product});
     }
     this.cartService.listTotalProducts(total);

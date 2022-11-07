@@ -1,0 +1,60 @@
+<div class="content-alert">
+
+  <div class="response" *ngIf="codResponse === 1">
+
+    <mat-icon class="icon-succes">check_circle_outline</mat-icon>
+
+    <h5>!Gracias por tu pedido!</h5>
+
+  </div>
+
+  <div class="response" *ngIf="codResponse !==1 && codResponse !==3">
+
+    <mat-icon class="icon-error">close</mat-icon>
+
+    <h5>!Upss... Algo salio mal!</h5>
+
+  </div>
+
+  <div class="response"  *ngIf="codResponse === 3">
+
+    <mat-icon class="icon-pending">history</mat-icon>
+
+    <h5>Transacción pendiente</h5>
+
+  </div>
+
+</div>
+
+<form >
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <button (click)="sendMail()">
+      Enviar
+    </button>
+  </form>
+
+<!-- <div class="response">
+
+  <mat-icon class="icon-succes">check_circle_outline</mat-icon>
+
+  <h5>!Gracias por tu pedido!</h5>
+
+  <p>Hemos enviado tu recibo por correo electrónico a <b>johnatan.r1000@gmail.com</b></p>
+
+  <div>
+
+  </div>
+  <hr>
+  <div>
+
+  </div>
+  <div class="content-total ">
+    <h4>Total</h4>
+    <h4>18.000</h4>
+  </div>
+</div> -->

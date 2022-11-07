@@ -23,6 +23,7 @@
 
 .kart {
   margin: 20px;
+  min-height: 431px;
 }
 
 .list-items {
@@ -44,6 +45,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin: 10px 0px 10px 5px;
+  min-width: 133px;
 }
 
 .title {
@@ -52,6 +54,9 @@
 
 .resume {
   margin-top: 40px;
+  background: #8080801a;
+  padding: 30px;
+  background: #8080801a;
 
   .remuse-total {
     display: flex;
@@ -59,3 +64,53 @@
   }
 }
 
+.content-icon {
+  margin-top: 9px;
+}
+
+::ng-deep .material-icons {
+  font-size: 21px;
+}
+
+.back-button {
+  background: white;
+  border: 1px solid;
+}
+
+
+@media only screen and (min-width: 644px) {
+  .kart {
+    display: flex;
+    justify-content: space-between;
+    // width: 54%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 592px) {
+
+  .response {
+    max-width: 526px;;
+  }
+
+}
+
+.icon-error {
+  color: red;
+}
+
+.response {
+  max-width: 336px;
+  box-shadow: 0px 0px 12px #999;
+  text-align: center;
+  padding: 53px;
+  max-height: 400px;
+}
+
+.container {
+  min-height: 470px;
+  min-height: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

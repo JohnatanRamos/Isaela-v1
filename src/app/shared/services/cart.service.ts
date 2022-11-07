@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IProduct } from '../interface/IProduct.interface';
@@ -56,11 +57,27 @@ export class CartService {
   private totalProducts = new BehaviorSubject<IProduct[]>([]);
   totalProducts$ = this.totalProducts.asObservable();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   listTotalProducts(value: IProduct[]) {
     value.push(...this.totalProducts.getValue());
 
     this.totalProducts.next(value);
+  }
+
+  removeProducts(value: IProduct[]) {
+    this.totalProducts.next(value);
+  }
+
+  getResponseEPayco(method: string) {
+    return this.http.get(method);
+  }
+
+  sendMail(method: string, body: any) {
+    return this.http.post(method, body, {
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
   }
 }

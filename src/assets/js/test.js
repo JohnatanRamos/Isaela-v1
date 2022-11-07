@@ -4,9 +4,9 @@ var handler = ePayco.checkout.configure({
 });
 var data = {
   //Parametros compra (obligatorio)
-  name: "Pijama",
-  description: "Pijama",
-  invoice: "12734",
+  name: "Vestido Mujer Primavera",
+  description: "Vestido Mujer Primavera",
+  invoice: "127332224",
   currency: "cop",
   amount: "12000",
   tax_base: "0",
@@ -21,9 +21,8 @@ var data = {
   extra1: "extra1",
   extra2: "extra2",
   extra3: "extra3",
-  confirmation: "file:///C:/Users/Administrador/Documents/personal/proyectos/isaela/index.html",
-  response: "file:///C:/Users/Administrador/Documents/personal/proyectos/isaela/index.html",
-
+  confirmation: "http://localhost:4200/response",
+  response: "http://localhost:4200/response",
 
   //Atributos cliente
   name_billing: "Andres Perez",

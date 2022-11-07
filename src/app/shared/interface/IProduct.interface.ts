@@ -7,4 +7,5 @@ export interface IProduct {
   images: string[];
   id: string;
   size?: 'XS' | 'S' | 'L' | 'M' | 'XL';
+  idProduct?: string;
 }

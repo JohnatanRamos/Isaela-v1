@@ -1,4 +1,4 @@
-<div class="kart">
+<div class="kart" *ngIf="totalProducts.length > 0">
 
   <div>
     <h4>Tus productos</h4>
@@ -9,18 +9,18 @@
 
         <div class="image-resume">
           <p class="title">{{item.name}}</p>
-          <p>{{item.shortDescription}}</p>
+          <p>{{item.shortDescription}} <br> Talla: {{item.size}}</p>
           <p>{{item.price | currency}}</p>
         </div>
 
-        <div>
-          <span></span>
+        <div class="content-icon">
+          <mat-icon [matTooltip]="'Eliminar'" (click)="deleteProduct(item)">delete_outline</mat-icon>
         </div>
 
       </div>
     </div>
   </div>
-
+<div>
   <div class="resume">
     <h5>Resumen del pedido</h5>
 
@@ -29,13 +29,31 @@
 
     <div class="remuse-total">
       <h5>TOTAL</h5>
-      <h5>15.900</h5>
+      <h5>{{ total | currency }}</h5>
     </div>
 
     <div>
-      <button class="button-buy">
-        <small class="text">Listo para pagar</small>
+      <button class="button-buy" *ngIf="totalProducts.length > 0">
+        <small class="text" (click)="buyProducts()">Listo para pagar</small>
+      </button>
+
+      <button class="button-buy back-button" [routerLink]="'/'">
+        <small class="text">Seguir comprando</small>
       </button>
     </div>
+  </div>
+  </div>
+</div>
+
+<div *ngIf="totalProducts.length === 0" class="container">
+  <div class="response" >
+
+    <mat-icon class="icon-error">close</mat-icon>
+
+    <h5>!Upss... No tienes productos agregados al carrito!</h5>
+
+    <button class="button-buy back-button" [routerLink]="'/'">
+      <small class="text">Seguir comprando</small>
+    </button>
   </div>
 </div>
