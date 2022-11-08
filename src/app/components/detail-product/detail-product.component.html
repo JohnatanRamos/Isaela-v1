@@ -53,7 +53,7 @@
       <span class="icon-cart icon-cart-button"></span>
     </button>
 
-    <button class="add-item color-green" *ngIf="size && amount > 0" [routerLink]="'/myKart'">
+    <button class="add-item color-green" *ngIf="(cartService.totalProducts$ | async)?.length !== 0" [routerLink]="'/myKart'">
       Ir al carrito
       <span class="icon-cart-button"></span>
     </button>

@@ -9,37 +9,34 @@ import { CartService } from 'src/app/shared/services/cart.service';
 })
 export class ResponseComponent implements OnInit {
 
-  totalProducts!: IProduct[];
-  // responseEpayco: any;
   codResponse: number = 0;
+  responseEpayco: any;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.totalProducts$.subscribe((res) => {
-      this.totalProducts = res;
-      console.log(this.totalProducts)
-    });
-    this.getResponseTransaction();
+    const sendMail = localStorage.getItem('sendEmail');
+
+    if (sendMail && sendMail === 'yes') {
+      this.getResponseTransaction();
+    }
   }
 
   getResponseTransaction() {
-    if (this.totalProducts.length > 0) {
-      //Referencia de payco que viene por url
-      const ref_payco = this.getQueryParam('ref_payco');
-      //Url Rest Metodo get, se pasa la llave y la ref_payco como paremetro
-      const urlapp = "https://secure.epayco.co/validation/v1/reference/" + ref_payco;
-      this.cartService.getResponseEPayco(urlapp).subscribe({
-        next: (res: any) => {
-          if (res?.data) {
-            this.codResponse = res.data?.x_cod_response;
-            this.validateStateCode();
-          }
-        },
-        error: (err) => { console.log(err) },
-        complete: () => { console.log('complete') }
-      });
-    }
+    //Referencia de payco que viene por url
+    const ref_payco = this.getQueryParam('ref_payco');
+    //Url Rest Metodo get, se pasa la llave y la ref_payco como paremetro
+    const urlapp = "https://secure.epayco.co/validation/v1/reference/" + ref_payco;
+    this.cartService.getResponseEPayco(urlapp).subscribe({
+      next: (res: any) => {
+        if (res?.data) {
+          this.responseEpayco = res.data;
+          this.codResponse = res.data?.x_cod_response;
+          this.validateStateCode();
+        }
+      },
+      error: (err) => { console.log(err) }
+    });
   }
 
   getQueryParam(param: string) {
@@ -59,15 +56,41 @@ export class ResponseComponent implements OnInit {
   }
 
   sendMail() {
-    this.cartService.sendMail('https://formspree.io/f/mvoydpwb', {
-      nombre: 'prueba'
-    }).subscribe(({
+    this.cartService.sendMail('https://formspree.io/f/mvoydpwb', this.convertToJson()
+    ).subscribe(({
       next: (res) => {
-        console.log(res)
+        this.cleanLocalStorage();
       },
       error: (err) => {
         console.log(err)
       }
     }))
+  }
+
+  convertToJson() {
+    const Cliente = JSON.parse(localStorage.getItem('form') as string)
+    let products = JSON.parse(localStorage.getItem('products') as string) as IProduct[];
+
+    const Productos = products.map((item) => {
+      return {
+        PRECIO: item.price,
+        NOMBRE: item.name,
+        TALLA: item.size
+      }
+    });
+
+    return {
+      IdEpayco: this.responseEpayco.x_transaction_id,
+      IdFactura: this.responseEpayco.x_id_factura,
+      Cliente,
+      Productos
+    }
+  }
+
+  cleanLocalStorage() {
+    localStorage.removeItem('sendEmail');
+    localStorage.removeItem('form');
+    localStorage.removeItem('products');
+    localStorage.setItem('sendEmail', 'not');
   }
 }

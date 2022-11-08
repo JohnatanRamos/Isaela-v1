@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -16,6 +17,7 @@ import { KartComponent } from './components/kart/kart.component';
 import { ResponseComponent } from './components/response/response.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material/material.module';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MaterialModule } from './shared/material/material.module';
     NotFoundComponent,
     LayoutComponent,
     KartComponent,
-    ResponseComponent
+    ResponseComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { MaterialModule } from './shared/material/material.module';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

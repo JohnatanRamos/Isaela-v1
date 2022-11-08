@@ -1,0 +1,60 @@
+<form [formGroup]="form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input type="text" matInput formControlName="nombre" placeholder="Ingrese su nombre">
+    <mat-error *ngIf="form.get('nombre')?.getError('minlength') && !form.get('nombre')?.hasError('required')">
+      Ingresa un nombre valido
+    </mat-error>
+    <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Apellido</mat-label>
+    <input type="text" matInput formControlName="apellido" placeholder="Ingrese su apellido">
+    <mat-error *ngIf="form.get('apellido')?.getError('minlength') && !form.get('apellido')?.hasError('required')">
+      Ingresa un apellido valido
+    </mat-error>
+    <mat-error *ngIf="form.get('apellido')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="email" placeholder="Ingrese su correo">
+    <mat-error *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')">
+      Ingresa un correo valido
+    </mat-error>
+    <mat-error *ngIf="form.get('email')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Dirección</mat-label>
+    <input type="text" matInput formControlName="direccion" placeholder="Ingrese direccion de entrega">
+    <mat-error *ngIf="form.get('direccion')?.hasError('minlength') && !form.get('direccion')?.hasError('required')">
+      Ingresa una Dirección valida
+    </mat-error>
+    <mat-error *ngIf="form.get('direccion')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Celular</mat-label>
+    <input type="number" matInput formControlName="celular" placeholder="Ingrese su numero de celular">
+    <mat-error *ngIf="form.get('celular')?.hasError('min') || form.get('celular')?.hasError('max') && !form.get('celular')?.hasError('required')">
+      Ingresa un numero de celular valido
+    </mat-error>
+    <mat-error *ngIf="form.get('celular')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <button class="button-buy" [disabled]="form.invalid" (click)="buy()" [mat-dialog-close]="true">
+    <small class="text" >Pagar</small>
+  </button>
+</form>

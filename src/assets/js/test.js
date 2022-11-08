@@ -4,8 +4,8 @@ var handler = ePayco.checkout.configure({
 });
 var data = {
   //Parametros compra (obligatorio)
-  name: "Vestido Mujer Primavera",
-  description: "Vestido Mujer Primavera",
+  name: "Pijamas",
+  description: "Pijamas",
   invoice: "127332224",
   currency: "cop",
   amount: "12000",
@@ -29,7 +29,7 @@ var data = {
   address_billing: "Carrera 19 numero 14 91",
   type_doc_billing: "cc",
   mobilephone_billing: "3050000000",
-  number_doc_billing: "100000000",
+  number_doc_billing: "0000000",
 
   //atributo deshabilitación metodo de pago
   methodsDisable: [],

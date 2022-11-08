@@ -22,7 +22,9 @@
 }
 
 .kart {
-  margin: 20px;
+  width: 94%;
+  max-width: 422px;
+  margin: 20px auto;
   min-height: 431px;
 }
 
@@ -53,7 +55,7 @@
 }
 
 .resume {
-  margin-top: 40px;
+  margin-top: 30px;
   background: #8080801a;
   padding: 30px;
   background: #8080801a;
@@ -82,8 +84,7 @@
   .kart {
     display: flex;
     justify-content: space-between;
-    // width: 54%;
-    margin: 0 auto;
+    max-width: 612px;
   }
 }
 
@@ -96,6 +97,7 @@
 }
 
 .icon-error {
+  font-size: 38px;
   color: red;
 }
 
