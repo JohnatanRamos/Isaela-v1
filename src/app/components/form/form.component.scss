@@ -1,14 +1,31 @@
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  max-height: 305px;
+  overflow: auto;
+  margin-bottom: 20px;
+  padding: 0 10px;
+
+  scrollbar-face-color: #6685CA;
+
+  scrollbar-highlight-color: #6685CA;
+
+  scrollbar-shadow-color: #6685CA;
+
+  scrollbar-3dlight-color:#FFFFFF;
+
+  scrollbar-arrow-color:#FFFFFF;
+
+  scrollbar-track-color:#E5E5E5;
+  scrollbar-color: yellow #800080;
+  scrollbar-width: 10px;
 }
 
 .button-buy {
   width: 200px;
   height: 35px;
+  margin: 0 auto;
   padding-top: 1px;
   align-self: center;
   background: #D8A4A8;
@@ -32,3 +49,14 @@ button:disabled {
   background: white;
   border: 1px solid;
 }
+
+form::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+form::-webkit-scrollbar-thumb {
+  background-color: #D8A4A8;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+}
+
+
