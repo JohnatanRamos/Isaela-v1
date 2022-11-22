@@ -34,7 +34,7 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Dirección</mat-label>
-    <input type="text" matInput formControlName="direccion" placeholder="Ingrese direccion de entrega">
+    <input type="text" matInput formControlName="direccion" placeholder="Direccion de entrega">
     <mat-error *ngIf="form.get('direccion')?.hasError('minlength') && !form.get('direccion')?.hasError('required')">
       Ingresa una Dirección valida
     </mat-error>
@@ -45,7 +45,7 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Celular</mat-label>
-    <input type="number" matInput formControlName="celular" placeholder="Ingrese su numero de celular">
+    <input type="number" matInput formControlName="celular" placeholder="Numero de celular">
     <mat-error *ngIf="form.get('celular')?.hasError('min') || form.get('celular')?.hasError('max') && !form.get('celular')?.hasError('required')">
       Ingresa un numero de celular valido
     </mat-error>
@@ -54,7 +54,37 @@
     </mat-error>
   </mat-form-field>
 
-  <button class="button-buy" [disabled]="form.invalid" (click)="buy()" [mat-dialog-close]="true">
-    <small class="text" >Pagar</small>
-  </button>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Departamento</mat-label>
+    <input type="number" matInput formControlName="departamento" placeholder="Departamento de entrega">
+    <mat-error *ngIf="form.get('departamento')?.hasError('minlength') && !form.get('departamento')?.hasError('required')">
+      Ingresa un departamento valido
+    </mat-error>
+    <mat-error *ngIf="form.get('departamento')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Código postal</mat-label>
+    <input type="number" matInput formControlName="codigoPostal" placeholder="Código postal">
+    <mat-error *ngIf="form.get('codigoPostal')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Ciudad</mat-label>
+    <input type="number" matInput formControlName="ciudad" placeholder="Ciudad de entrega">
+    <mat-error *ngIf="form.get('ciudad')?.hasError('minlength') && !form.get('ciudad')?.hasError('required')">
+      Ingresa una ciudad valida
+    </mat-error>
+    <mat-error *ngIf="form.get('ciudad')?.hasError('required')">
+      Este campo es obligatorio
+    </mat-error>
+  </mat-form-field>
 </form>
+
+<button class="button-buy" [disabled]="form.invalid" (click)="buy()" [mat-dialog-close]="true">
+  <small class="text" >Pagar</small>
+</button>

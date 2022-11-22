@@ -32,6 +32,9 @@ export class FormComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
       direccion: ['', [Validators.required, Validators.minLength(5)]],
+      ciudad: ['', [Validators.required, Validators.minLength(3)]],
+      codigoPostal: ['', [Validators.required]],
+      departamento: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
