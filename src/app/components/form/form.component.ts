@@ -10,7 +10,7 @@ declare var execute: any;
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   form!: FormGroup;
@@ -20,9 +20,6 @@ export class FormComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { invoice: string, totalValue: number, products: IProduct[] },
   ) {
     this.buildForm();
-  }
-
-  ngOnInit(): void {
   }
 
   buildForm() {
@@ -41,7 +38,7 @@ export class FormComponent implements OnInit {
   buy() {
     if (this.data.totalValue && this.data.invoice) {
       this.localStorageService();
-      execute(this.data.totalValue, this.data.invoice);
+      execute(this.data.totalValue, this.data.invoice, this.form.value);
     }
   }
 

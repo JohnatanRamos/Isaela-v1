@@ -1,14 +1,14 @@
 var handler = ePayco.checkout.configure({
-  key: "36b68cfec3da6f59f9faf598e993973b",
+  key: "c33e2f91a21e66b91e993640062c8200",
   test: true,
 });
 var data = {
   //Parametros compra (obligatorio)
   name: "Pijamas",
   description: "Pijamas",
-  invoice: "127332224",
+  invoice: "",
   currency: "cop",
-  amount: "12000",
+  amount: "",
   tax_base: "0",
   tax: "0",
   country: "co",
@@ -23,19 +23,24 @@ var data = {
   extra3: "extra3",
   confirmation: "https://isaela.shop/response",
   response: "https://isaela.shop/response",
+  // confirmation: "http://localhost:4200/response",
+  // response: "http://localhost:4200/response",
 
   //Atributos cliente
-  name_billing: "Andres Perez",
-  address_billing: "Carrera 19 numero 14 91",
-  type_doc_billing: "cc",
-  mobilephone_billing: "3050000000",
-  number_doc_billing: "0000000",
+  name_billing: "",
+  address_billing: "",
+  type_doc_billing: "CC",
+  mobilephone_billing: "",
+  number_doc_billing: "",
 
   //atributo deshabilitación metodo de pago
   methodsDisable: [],
 };
 
-function execute(total, invoiceN) {
+function execute(total, invoiceN, form) {
+  data.name_billing = form.nombre + ' ' + form.apellido;
+  data.address_billing = form.direccion;
+  data.mobilephone_billing = form.celular;
   data.amount = total;
   data.invoice = invoiceN;
   handler.open(data);

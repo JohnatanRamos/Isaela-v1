@@ -56,7 +56,7 @@ export class ResponseComponent implements OnInit {
   }
 
   sendMail() {
-    this.cartService.sendMail('https://formspree.io/f/xknekbvz', this.convertToJson()
+    this.cartService.sendMail('https://formspree.io/f/xnqrrrrw', this.convertToJson()
     ).subscribe(({
       next: (res) => {
         this.cleanLocalStorage();
