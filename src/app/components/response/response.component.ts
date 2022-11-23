@@ -11,6 +11,7 @@ export class ResponseComponent implements OnInit {
 
   codResponse: number = 0;
   responseEpayco: any;
+  x_transaction_state!: string;
 
   constructor(private cartService: CartService) { }
 
@@ -32,7 +33,8 @@ export class ResponseComponent implements OnInit {
         if (res?.data) {
           this.responseEpayco = res.data;
           this.codResponse = res.data?.x_cod_response;
-          this.validateStateCode();
+          this.x_transaction_state = res.data?.x_transaction_state;
+          this.sendMail();
         }
       },
       error: (err) => { console.log(err) }
@@ -48,17 +50,10 @@ export class ResponseComponent implements OnInit {
     return param
   }
 
-  validateStateCode() {
-    if (this.codResponse !== 1) {
-      return;
-    }
-    this.sendMail()
-  }
-
   sendMail() {
     this.cartService.sendMail('https://formspree.io/f/xnqrrrrw', this.convertToJson()
     ).subscribe(({
-      next: (res) => {
+      next: () => {
         this.cleanLocalStorage();
       },
       error: (err) => {
@@ -82,6 +77,7 @@ export class ResponseComponent implements OnInit {
     return {
       IdEpayco: this.responseEpayco.x_transaction_id,
       IdFactura: this.responseEpayco.x_id_factura,
+      estadoFactura: this.x_transaction_state,
       Cliente,
       Productos
     }
