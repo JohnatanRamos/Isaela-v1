@@ -41,8 +41,7 @@ function execute(total, invoiceN, form) {
   data.name_billing = form.nombre + ' ' + form.apellido;
   data.address_billing = form.direccion;
   data.mobilephone_billing = form.celular;
-  // data.amount = total;
-  data.amount = 10000;
+  data.amount = total;
   data.invoice = invoiceN;
   handler.open(data);
 }
