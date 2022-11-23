@@ -17,8 +17,10 @@ export class ResponseComponent implements OnInit {
 
   ngOnInit(): void {
     const sendMail = localStorage.getItem('sendEmail');
+    console.log("🚀 ~ file: response.component.ts ~ line 20 ~ ResponseComponent ~ ngOnInit ~ sendMail", sendMail)
 
     if (sendMail && sendMail === 'yes') {
+      console.log('primer if')
       this.getResponseTransaction();
     }
   }
@@ -26,10 +28,13 @@ export class ResponseComponent implements OnInit {
   getResponseTransaction() {
     //Referencia de payco que viene por url
     const ref_payco = this.getQueryParam('ref_payco');
+    console.log("🚀 ~ file: response.component.ts ~ line 31 ~ ResponseComponent ~ getResponseTransaction ~ ref_payco", ref_payco)
     //Url Rest Metodo get, se pasa la llave y la ref_payco como paremetro
     const urlapp = "https://secure.epayco.co/validation/v1/reference/" + ref_payco;
+    console.log("🚀 ~ file: response.component.ts ~ line 34 ~ ResponseComponent ~ getResponseTransaction ~ urlapp", urlapp)
     this.cartService.getResponseEPayco(urlapp).subscribe({
       next: (res: any) => {
+        console.log("🚀 ~ file: response.component.ts ~ line 37 ~ ResponseComponent ~ this.cartService.getResponseEPayco ~ res", res)
         if (res?.data) {
           this.responseEpayco = res.data;
           this.codResponse = res.data?.x_cod_response;
