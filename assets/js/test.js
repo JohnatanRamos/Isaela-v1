@@ -21,8 +21,8 @@ var data = {
   extra1: "extra1",
   extra2: "extra2",
   extra3: "extra3",
-  confirmation: "http://isaela.shop/response",
-  response: "http://isaela.shop/response",
+  confirmation: "https://isaela.shop/response",
+  response: "https://isaela.shop/response",
   // confirmation: "http://localhost:4200/response",
   // response: "http://localhost:4200/response",
 
