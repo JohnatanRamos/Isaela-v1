@@ -1,6 +1,6 @@
 var handler = ePayco.checkout.configure({
   key: "c33e2f91a21e66b91e993640062c8200",
-  test: true,
+  test: false,
 });
 var data = {
   //Parametros compra (obligatorio)
