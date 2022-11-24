@@ -12,13 +12,13 @@ var data = {
   tax_base: "0",
   tax: "0",
   country: "co",
-  lang: "en",
+  lang: "es",
 
   //Onpage="false" - Standard="true"
   external: "false",
 
   //Atributos opcionales
-  extra1: "extra1",
+  extra1: {},
   extra2: "extra2",
   extra3: "extra3",
   confirmation: "https://isaela.shop/response",
@@ -41,8 +41,7 @@ function execute(total, invoiceN, form) {
   data.name_billing = form.nombre + ' ' + form.apellido;
   data.address_billing = form.direccion;
   data.mobilephone_billing = form.celular;
-  // data.amount = total;
-  data.amount = 5000;
+  data.amount = total;
   data.invoice = invoiceN;
   handler.open(data);
 }
