@@ -21,8 +21,8 @@ var data = {
   extra1: "extra1",
   extra2: "extra2",
   extra3: "extra3",
-  confirmation: "https://isaela.shop/response",
-  response: "https://isaela.shop/response",
+  confirmation: "http://isaela.shop/response",
+  response: "http://isaela.shop/response",
   // confirmation: "http://localhost:4200/response",
   // response: "http://localhost:4200/response",
 
@@ -42,7 +42,7 @@ function execute(total, invoiceN, form) {
   data.address_billing = form.direccion;
   data.mobilephone_billing = form.celular;
   // data.amount = total;
-  data.amount = 10000;
+  data.amount = 5000;
   data.invoice = invoiceN;
   handler.open(data);
 }
